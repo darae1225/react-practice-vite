@@ -16,11 +16,11 @@ export function CheckoutPage({ cart }) {
       .then((response) => {
         setDeliveryOptions(response.data);
       });
-
-    axios.get("/api/payment-summary").then((response) => {
-      setPaymentSummary(response.data);
-    });
   }, []);
+
+  axios.get("/api/payment-summary").then((response) => {
+    setPaymentSummary(response.data);
+  });
 
   return (
     <>
@@ -157,18 +157,21 @@ export function CheckoutPage({ cart }) {
                     {formatMoney(paymentSummary.productCostCents)}
                   </div>
                 </div>
+
                 <div className="payment-summary-row">
                   <div>Shipping &amp; handling:</div>
                   <div className="payment-summary-money">
                     {formatMoney(paymentSummary.shippingCostCents)}
                   </div>
                 </div>
+
                 <div className="payment-summary-row subtotal-row">
                   <div>Total before tax:</div>
                   <div className="payment-summary-money">
-                    {formatMoney(paymentSummary.totalCostBeforeTaxCents)}
+                    {formatMoney(paymentSummary.totalCostBeforeCents)}
                   </div>
                 </div>
+
                 <div className="payment-summary-row">
                   <div>Estimated tax (10%):</div>
                   <div className="payment-summary-money">
