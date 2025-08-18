@@ -55,14 +55,11 @@ export function CheckoutPage({ cart }) {
                         {cartItem.product.name}
                       </div>
                       <div className="product-price">
-                        {formatMoney(cartItem.product.priceCents)}
+                        ${(cartItem.product.priceCents * 10).toFixed(2)}
                       </div>
                       <div className="product-quantity">
                         <span>
-                          Quantity:{" "}
-                          <span className="quantity-label">
-                            {cartItem.quantity}
-                          </span>
+                          Quantity: <span className="quantity-label">2</span>
                         </span>
                         <span className="update-quantity-link link-primary">
                           Update

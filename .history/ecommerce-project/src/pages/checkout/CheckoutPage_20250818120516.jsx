@@ -1,7 +1,6 @@
 import "./CheckoutHeader.css";
 import "./CheckoutPage.css";
 import { Link } from "react-router";
-import { formatMoney } from "../../utils/money";
 
 export function CheckoutPage({ cart }) {
   return (
@@ -47,22 +46,17 @@ export function CheckoutPage({ cart }) {
                   <div className="cart-item-details-grid">
                     <img
                       className="product-image"
-                      src={cartItem.product.image}
+                      src="images/products/athletic-cotton-socks-6-pairs.jpg"
                     />
 
                     <div className="cart-item-details">
                       <div className="product-name">
-                        {cartItem.product.name}
+                        Black and Gray Athletic Cotton Socks - 6 Pairs
                       </div>
-                      <div className="product-price">
-                        {formatMoney(cartItem.product.priceCents)}
-                      </div>
+                      <div className="product-price">$10.90</div>
                       <div className="product-quantity">
                         <span>
-                          Quantity:{" "}
-                          <span className="quantity-label">
-                            {cartItem.quantity}
-                          </span>
+                          Quantity: <span className="quantity-label">2</span>
                         </span>
                         <span className="update-quantity-link link-primary">
                           Update
