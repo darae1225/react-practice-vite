@@ -13,10 +13,10 @@ export function HomePage() {
 
       <div className="home-page">
         <div className="products-grid">
-          {products.map((product) => (
+          {products.map((product) => {
             <div key={product.id} className="product-container">
               <div className="product-image-container">
-                <img className="product-image" src={product.image} />
+                <img className="product-image" src={product.images} />
               </div>
 
               <div className="product-name limit-text-to-2-lines">
@@ -33,9 +33,7 @@ export function HomePage() {
                 </div>
               </div>
 
-              <div className="product-price">
-                ${(product.priceCents / 100).toFixed(2)}
-              </div>
+              <div className="product-price">${product.priceCents / 100}</div>
 
               <div className="product-quantity-container">
                 <select>
@@ -62,8 +60,8 @@ export function HomePage() {
               <button className="add-to-cart-button button-primary">
                 Add to Cart
               </button>
-            </div>
-          ))}
+            </div>;
+          })}
         </div>
       </div>
     </>

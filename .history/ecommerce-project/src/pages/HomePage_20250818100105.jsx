@@ -13,29 +13,28 @@ export function HomePage() {
 
       <div className="home-page">
         <div className="products-grid">
-          {products.map((product) => (
+          {products.map((product) => {
             <div key={product.id} className="product-container">
               <div className="product-image-container">
-                <img className="product-image" src={product.image} />
+                <img
+                  className="product-image"
+                  src="images/products/athletic-cotton-socks-6-pairs.jpg"
+                />
               </div>
 
               <div className="product-name limit-text-to-2-lines">
-                {product.name}
+                Black and Gray Athletic Cotton Socks - 6 Pairs
               </div>
 
               <div className="product-rating-container">
                 <img
                   className="product-rating-stars"
-                  src={`images/ratings/rating-${product.rating.stars * 10}.png`}
+                  src="images/ratings/rating-45.png"
                 />
-                <div className="product-rating-count link-primary">
-                  {product.rating.count}
-                </div>
+                <div className="product-rating-count link-primary">87</div>
               </div>
 
-              <div className="product-price">
-                ${(product.priceCents / 100).toFixed(2)}
-              </div>
+              <div className="product-price">$10.90</div>
 
               <div className="product-quantity-container">
                 <select>
@@ -62,8 +61,8 @@ export function HomePage() {
               <button className="add-to-cart-button button-primary">
                 Add to Cart
               </button>
-            </div>
-          ))}
+            </div>;
+          })}
         </div>
       </div>
     </>

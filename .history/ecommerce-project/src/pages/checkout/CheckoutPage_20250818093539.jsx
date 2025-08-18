@@ -5,7 +5,7 @@ import { Link } from "react-router";
 export function CheckoutPage() {
   return (
     <>
-      <link rel="icon" type="image/svg+xml" href="/checkout-favicon.png" />
+      <link rel="icon" type="image/svg+xml" href="/vite.svg" />
       <title>Checkout</title>
 
       <div className="checkout-header">

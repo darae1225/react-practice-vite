@@ -33,9 +33,7 @@ export function HomePage() {
                 </div>
               </div>
 
-              <div className="product-price">
-                ${(product.priceCents / 100).toFixed(2)}
-              </div>
+              <div className="product-price">${product.priceCents / 100}</div>
 
               <div className="product-quantity-container">
                 <select>
@@ -62,7 +60,7 @@ export function HomePage() {
               <button className="add-to-cart-button button-primary">
                 Add to Cart
               </button>
-            </div>
+            </div>;
           ))}
         </div>
       </div>
