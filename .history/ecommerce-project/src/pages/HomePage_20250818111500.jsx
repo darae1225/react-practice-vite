@@ -35,7 +35,7 @@ export function HomePage() {
       <Header />
 
       <div className="home-page">
-        <div className="products-grid">
+        {/* <div className="products-grid">
           {products.map((product) => (
             <div key={product.id} className="product-container">
               <div className="product-image-container">
@@ -87,7 +87,7 @@ export function HomePage() {
               </button>
             </div>
           ))}
-        </div>
+        </div> */}
       </div>
     </>
   );

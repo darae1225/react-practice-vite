@@ -1,12 +1,10 @@
 import { Header } from "../components/Header";
 import "../components/header.css";
 import "./HomePage.css";
+import { products } from "../../starting-code/data/products";
 import axios from "axios";
-import { useEffect, useState } from "react";
 
 export function HomePage() {
-  const [products, setProducts] = useState([]);
-
   // fetch("http://localhost:3000/api/products").then((response) => {
   //   response.json().then((data) => {
   //     console.log(data);
@@ -21,12 +19,9 @@ export function HomePage() {
   //     console.log(data);
   //   });
 
-  useEffect(() => {
-    axios.get("http://localhost:3000/api/products").then((response) => {
-      setProducts(response.data);
-    });
-  }, []);
-
+  axios.get("http://localhost:3000/api/products").then((response) => {
+    console.log(response.data);
+  });
   return (
     <>
       <link rel="icon" type="image/svg+xml" href="/home-favicon.png" />

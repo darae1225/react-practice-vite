@@ -2,11 +2,9 @@ import { Header } from "../components/Header";
 import "../components/header.css";
 import "./HomePage.css";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 export function HomePage() {
-  const [products, setProducts] = useState([]);
-
   // fetch("http://localhost:3000/api/products").then((response) => {
   //   response.json().then((data) => {
   //     console.log(data);
@@ -23,7 +21,7 @@ export function HomePage() {
 
   useEffect(() => {
     axios.get("http://localhost:3000/api/products").then((response) => {
-      setProducts(response.data);
+      console.log(response.data);
     });
   }, []);
 
