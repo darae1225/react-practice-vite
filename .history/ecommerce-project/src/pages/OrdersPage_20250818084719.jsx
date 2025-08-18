@@ -1,13 +1,9 @@
-import { Header } from "../components/Header";
-import "../components/header.css";
 import "./OrdersPage.css";
 
 export function OrdersPage() {
   return (
     <>
       <title>Orders</title>
-
-      <Header />
 
       <div className="orders-page">
         <div className="page-title">Your Orders</div>

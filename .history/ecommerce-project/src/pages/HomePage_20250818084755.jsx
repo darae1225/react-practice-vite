@@ -1,14 +1,10 @@
-import { Header } from "../components/Header";
-import "../components/header.css";
 import "./HomePage.css";
 
 export function HomePage() {
   return (
     <>
       <title>ecommerce project</title>
-
-      <Header />
-
+      <Headers />
       <div className="home-page">
         <div className="products-grid">
           <div className="product-container">

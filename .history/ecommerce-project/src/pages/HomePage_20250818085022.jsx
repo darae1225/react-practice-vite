@@ -6,9 +6,7 @@ export function HomePage() {
   return (
     <>
       <title>ecommerce project</title>
-
       <Header />
-
       <div className="home-page">
         <div className="products-grid">
           <div className="product-container">
