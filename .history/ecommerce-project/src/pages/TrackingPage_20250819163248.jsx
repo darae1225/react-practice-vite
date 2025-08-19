@@ -3,7 +3,7 @@ import { Header } from "../components/Header";
 import "../components/header.css";
 import "./TrackingPage.css";
 
-export function TrackingPage({ cart }) {
+export function TrackingPage() {
   return (
     <>
       <link rel="icon" type="image/svg+xml" href="/vite.svg" />
