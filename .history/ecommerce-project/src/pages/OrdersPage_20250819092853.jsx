@@ -49,24 +49,24 @@ export function OrdersPage({ cart }) {
                 </div>
 
                 <div className="order-details-grid">
-                  {order.products.map((orderProduct) => {
+                  {order.products.map((product) => {
                     return (
-                      <Fragment key={orderProduct.product.id}>
+                      <Fragment key={product.id}>
                         <div className="product-image-container">
-                          <img src={orderProduct.product.image} />
+                          <img src={product.product.image} />
                         </div>
                         <div className="product-details">
                           <div className="product-name">
-                            {orderProduct.product.name}
+                            {product.product.name}
                           </div>
                           <div className="product-delivery-date">
-                            Arriving on:
-                            {dayjs(orderProduct.estimatedDeliveryTimeMs).format(
+                            Arriving on:{" "}
+                            {dayjs(product.estimatedDeliveryTimeMs).format(
                               "MMMM D"
                             )}
                           </div>
                           <div className="product-quantity">
-                            Quantity: {orderProduct.quantity}
+                            Quantity: {product.quantity}
                           </div>
                           <button className="buy-again-button button-primary">
                             <img
@@ -85,7 +85,7 @@ export function OrdersPage({ cart }) {
                             </button>
                           </Link>
                         </div>
-                      </Fragment>
+                      </>
                     );
                   })}
                 </div>

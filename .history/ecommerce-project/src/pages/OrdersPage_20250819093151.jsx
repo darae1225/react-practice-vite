@@ -51,7 +51,7 @@ export function OrdersPage({ cart }) {
                 <div className="order-details-grid">
                   {order.products.map((orderProduct) => {
                     return (
-                      <Fragment key={orderProduct.product.id}>
+                      <Fragment key={orderProduct.productId}>
                         <div className="product-image-container">
                           <img src={orderProduct.product.image} />
                         </div>
@@ -60,7 +60,7 @@ export function OrdersPage({ cart }) {
                             {orderProduct.product.name}
                           </div>
                           <div className="product-delivery-date">
-                            Arriving on:
+                            Arriving on:{" "}
                             {dayjs(orderProduct.estimatedDeliveryTimeMs).format(
                               "MMMM D"
                             )}
