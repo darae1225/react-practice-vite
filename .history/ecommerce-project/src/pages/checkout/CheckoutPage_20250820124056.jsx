@@ -22,7 +22,6 @@ export function CheckoutPage({ cart }) {
     };
 
     fetchCheckoutData();
-    console.log(cart);
   }, []);
 
   return (
@@ -37,7 +36,6 @@ export function CheckoutPage({ cart }) {
 
         <div className="checkout-grid">
           <OrderSummary deliveryOptions={deliveryOptions} cart={cart} />
-
           <PaymentSummary paymentSummary={paymentSummary} />
         </div>
       </div>

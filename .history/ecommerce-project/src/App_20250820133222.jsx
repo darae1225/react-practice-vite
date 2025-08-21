@@ -6,8 +6,10 @@ import { OrdersPage } from "./pages/orders/OrdersPage";
 import { TrackingPage } from "./pages/TrackingPage";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { useParams } from "react-router";
 
 function App() {
+  const { orderId, productId } = useParams();
   const [cart, setCart] = useState([]);
 
   useEffect(() => {

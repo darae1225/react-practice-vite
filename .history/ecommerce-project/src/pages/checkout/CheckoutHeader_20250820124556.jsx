@@ -3,7 +3,7 @@ import { Link } from "react-router";
 export function CheckoutHeader({ cart }) {
   let totalQuantity = 0;
   cart.forEach((cartItem) => {
-    totalQuantity += cartItem.quantity;
+    cartItem.quantity += totalQuantity;
   });
 
   return (

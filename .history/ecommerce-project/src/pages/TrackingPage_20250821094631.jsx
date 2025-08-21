@@ -32,15 +32,10 @@ export function TrackingPage({ cart }) {
   const totalDeliveryTimeMs = dayjs(
     orderProduct.estimatedDeliveryTimeMs - order.orderTimeMs
   ).format("DD/MM/YYYY");
-  const timePassedMs = dayjs().valueOf() - order.orderTimeMs;
-  let deliveryPercent = (timePassedMs / totalDeliveryTimeMs) * 100;
-  if (deliveryPercent > 100) {
-    deliveryPercent = 100;
-  }
+  console.log(totalDeliveryTimeMs);
 
-  const isPreparing = deliveryPercent < 33;
-  const isShipped = 33 <= deliveryPercent < 100;
-  const isDelivered = deliveryPercent === 100;
+  const timePassedMs = dayjs().valueOf() - order.orderTimeMs;
+  console.log(timePassedMs);
 
   return (
     <>
@@ -57,7 +52,6 @@ export function TrackingPage({ cart }) {
 
           <div className="delivery-date">
             Arriving on
-            {deliveryPercent >= 100 ? "Delivered on" : "Arriving on"}
             {dayjs(orderProduct.estimatedDeliveryTimeMs).format("dddd, MMMM D")}
           </div>
 
@@ -68,28 +62,13 @@ export function TrackingPage({ cart }) {
           <img className="product-image" src={orderProduct.product.image} />
 
           <div className="progress-labels-container">
-            <div
-              className={`progress-label ${isPreparing && "current-status"}`}
-            >
-              {" "}
-              Preparing{" "}
-            </div>
-            <div className={`progress-label ${isShipped && "current-status"}`}>
-              {" "}
-              Shipped{" "}
-            </div>
-            <div
-              className={`progress-label ${isDelivered && "current-status"}`}
-            >
-              Delivered
-            </div>
+            <div className="progress-label">Preparing</div>
+            <div className="progress-label current-status">Shipped</div>
+            <div className="progress-label">Delivered</div>
           </div>
 
           <div className="progress-bar-container">
-            <div
-              className="progress-bar"
-              style={{ width: `${deliveryPercent}%` }}
-            ></div>
+            <div className="progress-bar"></div>
           </div>
         </div>
       </div>

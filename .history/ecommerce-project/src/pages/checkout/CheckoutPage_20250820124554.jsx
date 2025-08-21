@@ -22,7 +22,6 @@ export function CheckoutPage({ cart }) {
     };
 
     fetchCheckoutData();
-    console.log(cart);
   }, []);
 
   return (

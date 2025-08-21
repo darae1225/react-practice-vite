@@ -6,8 +6,11 @@ import { OrdersPage } from "./pages/orders/OrdersPage";
 import { TrackingPage } from "./pages/TrackingPage";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { useParams } from "react-router";
 
 function App() {
+  const params = useParams();
+
   const [cart, setCart] = useState([]);
 
   useEffect(() => {
@@ -16,6 +19,7 @@ function App() {
       setCart(response.data);
     };
     fetchAppData();
+    console.log(params);
   }, []);
 
   return (
