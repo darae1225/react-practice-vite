@@ -23,7 +23,7 @@ export function CheckoutPage({ cart, loadCart }) {
 
     fetchCheckoutData();
     console.log(cart);
-  }, [cart]);
+  }, []);
 
   return (
     <>
