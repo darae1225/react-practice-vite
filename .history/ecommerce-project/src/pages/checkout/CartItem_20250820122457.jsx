@@ -1,7 +1,7 @@
 import { Fragment } from "react";
 import { formatMoney } from "../../utils/money";
 
-export function CartItem({ cartItem, deleteCartItem }) {
+export function CartItem({ cartItem }) {
   return (
     <Fragment>
       <img className="product-image" src={cartItem.product.image} />
@@ -17,12 +17,7 @@ export function CartItem({ cartItem, deleteCartItem }) {
             <span className="quantity-label">{cartItem.quantity}</span>
           </span>
           <span className="update-quantity-link link-primary">Update</span>
-          <span
-            className="delete-quantity-link link-primary"
-            onClick={deleteCartItem}
-          >
-            Delete
-          </span>
+          <span className="delete-quantity-link link-primary">Delete</span>
         </div>
       </div>
     </Fragment>

@@ -19,12 +19,21 @@ export function OrderSummary({ deliveryOptions, cart, loadCart }) {
             await loadCart();
           };
 
+          const updateCartItem = async () => {
+            await axios.put(`/api/cart-items/${cartItem.productId}`);
+            await loadCart();
+          };
+
           return (
             <div key={cartItem.productId} className="cart-item-container">
               <DeliveryDate selectedDeliveryOption={selectedDeliveryOption} />
 
               <div className="cart-item-details-grid">
-                <CartItem cartItem={cartItem} deleteCartItem={deleteCartItem} />
+                <CartItem
+                  cartItem={cartItem}
+                  deleteCartItem={deleteCartItem}
+                  updateCartItem={updateCartItem}
+                />
 
                 <DeliveryOptions
                   cartItem={cartItem}

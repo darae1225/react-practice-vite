@@ -3,7 +3,12 @@ import { CartItem } from "./cartItem";
 import { DeliveryDate } from "./DeliveryDate";
 import axios from "axios";
 
-export function OrderSummary({ deliveryOptions, cart, loadCart }) {
+export function OrderSummary({
+  deliveryOptions,
+  cart,
+  loadCart,
+  deleteCartItem,
+}) {
   return (
     <div className="order-summary">
       {deliveryOptions.length > 0 &&
@@ -24,7 +29,7 @@ export function OrderSummary({ deliveryOptions, cart, loadCart }) {
               <DeliveryDate selectedDeliveryOption={selectedDeliveryOption} />
 
               <div className="cart-item-details-grid">
-                <CartItem cartItem={cartItem} deleteCartItem={deleteCartItem} />
+                <CartItem cartItem={cartItem} />
 
                 <DeliveryOptions
                   cartItem={cartItem}
