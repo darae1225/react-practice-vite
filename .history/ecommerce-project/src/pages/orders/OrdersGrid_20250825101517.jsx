@@ -6,7 +6,7 @@ export function OrdersGrid({ orders, loadCart }) {
     <div className="orders-grid">
       {orders.map((order) => {
         return (
-          <div key={order.id} className="order-container">
+          <div key={orders.id} className="order-container">
             <OrderHeader order={order} />
             <OrderDetailsGrid order={order} loadCart={loadCart} />
           </div>

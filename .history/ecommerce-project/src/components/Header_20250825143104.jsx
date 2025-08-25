@@ -1,9 +1,8 @@
-import { NavLink, useNavigate } from "react-router";
+import { NavLink } from "react-router";
 import "./Header.css";
 import { useState } from "react";
 
 export function Header({ cart }) {
-  const navigate = useNavigate();
   const [search, setSearch] = useState("");
 
   const updateSearchInput = (e) => {
@@ -11,7 +10,9 @@ export function Header({ cart }) {
   };
 
   const searchProducts = () => {
-    navigate(`/?search=${search}`);
+    if (search) {
+      console.log(search);
+    }
   };
 
   let totalQuantity = 0;

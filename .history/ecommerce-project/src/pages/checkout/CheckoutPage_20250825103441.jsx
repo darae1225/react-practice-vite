@@ -19,7 +19,7 @@ export function CheckoutPage({ cart, loadCart }) {
     };
 
     fetchCheckoutData();
-  }, []);
+  }, [cart]);
 
   useEffect(() => {
     const fetchPaymentSummaryData = async () => {
