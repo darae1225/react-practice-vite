@@ -1,9 +1,7 @@
 import { it, expect, describe, vi } from "vitest"; // 'vi' create a fake function (mock) for testing purpose
 import { Product } from "../home/Product";
 import { render, screen } from "@testing-library/react"; //'screen' let us check the fake web page
-import userEvent from "@testing-library/user-event"; //simulates a click
-import axios from "axios";
-vi.mock("axios"); //allow to use a fake version of axios
+import userEvent from "@testing-library-user-event";
 
 describe("Product component", () => {
   it("displays the product details correctly", () => {
@@ -69,10 +67,5 @@ describe("Product component", () => {
     const user = userEvent.setup();
     const addToCartButton = screen.getByTestId("add-to-cart-button");
     await user.click(addToCartButton);
-    expect(axios.post).toHaveBeenCalledWith("/api/cart-items", {
-      productId: "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
-      quantity: 1,
-    });
-    expect(loadCart).toHaveBeenCalled();
   });
 });
