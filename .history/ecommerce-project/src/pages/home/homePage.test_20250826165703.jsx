@@ -1,0 +1,76 @@
+import { it, expect, describe, vi } from "vitest"; // 'vi' create a fake function (mock) for testing purpose
+import { Product } from "./Product";
+import { render, screen, within } from "@testing-library/react"; //'screen' let us check the fake web page
+import userEvent from "@testing-library/user-event"; //simulates a click
+import axios from "axios";
+import { beforeEach } from "vitest";
+import { HomePage } from "./HomePage";
+import { MemoryRouter } from "react-router"; //specifically used for testing
+
+vi.mock("axios"); //fake axios
+
+describe("HomePage component", () => {
+  let loadCart;
+
+  beforeEach(() => {
+    loadCart = vi.fn();
+
+    //this below code is used when you need to get info from backend, it will run fake axios
+    axios.get.mockImplementation(async (urlPath) => {
+      if (urlPath === "/api/products") {
+        return {
+          data: [
+            {
+              id: "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
+              image: "images/products/athletic-cotton-socks-6-pairs.jpg",
+              name: "Black and Gray Athletic Cotton Socks - 6 Pairs",
+              rating: {
+                stars: 4.5,
+                count: 87,
+              },
+              priceCents: 1090,
+              keywords: ["socks", "sports", "apparel"],
+            },
+            {
+              id: "15b6fc6f-327a-4ec4-896f-486349e85a3d",
+              image: "images/products/intermediate-composite-basketball.jpg",
+              name: "Intermediate Size Basketball",
+              rating: {
+                stars: 4,
+                count: 127,
+              },
+              priceCents: 2095,
+              keywords: ["sports", "basketballs"],
+            },
+          ],
+        };
+      }
+    });
+  });
+
+  it("displays the products correct", async () => {
+    //MemoryRouter is used to enable 'Link' component in the product.jsx file. Link component is in the router, and MemoryRouter is used in testing environment.
+    render(
+      <MemoryRouter>
+        <HomePage cart={[]} loadCart={loadCart} />
+      </MemoryRouter>
+    );
+
+    //used to check the correct number of element (two products) listed in the testing file
+    const productContainers = await screen.findAllByTestId("product-container");
+    expect(productContainers.length).toBe(2);
+
+    expect(
+      //within allow to check specific element to check
+      //this test allows to check the text within the first element specifically
+      within(productContainers[0]).getByText(
+        "Black and Gray Athletic Cotton Socks - 6 Pairs"
+      )
+    ).toBeInTheDocument();
+
+    expect(
+      //this test allows to check the text within the second element specifically
+      within(productContainers[1]).getByText("Intermediate Size Basketball")
+    ).toBeInTheDocument();
+  });
+});

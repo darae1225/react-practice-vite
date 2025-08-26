@@ -46,11 +46,7 @@ export function Header({ cart }) {
           />
 
           <button onClick={searchProducts} className="search-button">
-            <img
-              className="search-icon"
-              src="images/icons/search-icon.png"
-              alt="search-icon"
-            />
+            <img className="search-icon" src="images/icons/search-icon.png" />
           </button>
         </div>
 
@@ -60,11 +56,7 @@ export function Header({ cart }) {
           </NavLink>
 
           <NavLink className="cart-link header-link" to="/checkout">
-            <img
-              className="cart-icon"
-              src="images/icons/cart-icon.png"
-              alt="cart-icon"
-            />
+            <img className="cart-icon" src="images/icons/cart-icon.png" />
             <div className="cart-quantity">{totalQuantity}</div>
             <div className="cart-text">Cart</div>
           </NavLink>
