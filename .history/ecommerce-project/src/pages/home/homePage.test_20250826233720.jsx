@@ -85,7 +85,7 @@ describe("HomePage component", () => {
     const quantitySelector1 = within(productContainers[0]).getByTestId(
       "product-quantity-selector"
     );
-    await userEvent.selectOptions(quantitySelector1, "2");
+    await userEvent.selectOptions(quantitySelected1, "2");
 
     const addToCartButton1 = within(productContainers[0]).getByTestId(
       "add-to-cart-button"

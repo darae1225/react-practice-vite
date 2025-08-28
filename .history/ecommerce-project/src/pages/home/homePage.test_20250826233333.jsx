@@ -82,11 +82,6 @@ describe("HomePage component", () => {
     );
     const productContainers = await screen.findAllByTestId("product-container");
 
-    const quantitySelector1 = within(productContainers[0]).getByTestId(
-      "product-quantity-selector"
-    );
-    await userEvent.selectOptions(quantitySelector1, "2");
-
     const addToCartButton1 = within(productContainers[0]).getByTestId(
       "add-to-cart-button"
     );
@@ -99,7 +94,7 @@ describe("HomePage component", () => {
 
     expect(axios.post).toHaveBeenNthCalledWith(1, "/api/cart-items", {
       productId: "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
-      quantity: 2,
+      quantity: 1,
     });
 
     expect(axios.post).toHaveBeenNthCalledWith(2, "/api/cart-items", {

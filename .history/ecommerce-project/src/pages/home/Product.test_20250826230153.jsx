@@ -11,8 +11,6 @@ describe("Product component", () => {
   let product;
   let loadCart;
 
-  const user = userEvent.setup();
-
   beforeEach(() => {
     product = {
       id: "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
@@ -58,34 +56,20 @@ describe("Product component", () => {
     expect(screen.getByTestId("product-rating-count")).toHaveTextContent("87");
   });
 
-  it("get the quantity selector", async () => {
-    render(<Product product={product} loadCart={loadCart} />);
-    const quantitySelector = screen.getByTestId("product-quantity-selector");
-
-    expect(quantitySelector).toHaveValue("1");
-
-    await user.selectOptions(quantitySelector, "3");
-    expect(quantitySelector).toHaveValue("3");
-
-    const addToCartButton = screen.getByTestId("add-to-cart-button");
-    await user.click(addToCartButton);
-
-    expect(axios.post).toHaveBeenCalledWith("/api/cart-items", {
-      productId: "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
-      quantity: 3,
-    });
-  });
-
   it("adds a product to the cart", async () => {
     render(<Product product={product} loadCart={loadCart} />);
 
+    const user = userEvent.setup();
     const addToCartButton = screen.getByTestId("add-to-cart-button");
     await user.click(addToCartButton);
     expect(axios.post).toHaveBeenCalledWith("/api/cart-items", {
       productId: "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
       quantity: 1,
     });
-
     expect(loadCart).toHaveBeenCalled();
+  });
+
+  it("get the quantity selector", () => {
+    expect(screen.getByTestId("quantitySelector")).toHaveValue("1");
   });
 });
