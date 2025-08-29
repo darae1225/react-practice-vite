@@ -1,5 +1,5 @@
 import { it, expect, describe, beforeEach, vi } from "vitest";
-import { Header } from "./Header";
+import { Header } from "../components/Header";
 import { MemoryRouter } from "react-router";
 import { render, screen } from "@testing-library/react";
 import axios from "axios";
