@@ -17,7 +17,7 @@ export function Header({ cart }: HeaderProps) {
   const navigate = useNavigate();
   const [search, setSearch] = useState("");
 
-  const updateSearchInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const updateSearchInput = (e) => {
     setSearch(e.target.value);
   };
 
